@@ -1,11 +1,9 @@
 # Write your code here
-
-require 'open-uri'
 require 'net/http'
+require 'open-uri'
 require 'json'
 
-
-class GetRequester 
+class GetRequester
 
     def initialize(url)
         @url = url
@@ -13,11 +11,12 @@ class GetRequester
 
     def get_response_body
         uri = URI.parse(@url)
-        response = Net:: HTTP.get_response(uri)
-        response.body
+        response = Net::HTTP.get_response(uri)
+        response.body 
     end
 
-    def parse_json
+    def parse_json 
         JSON.parse(get_response_body)
     end
+
 end
